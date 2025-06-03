@@ -48,22 +48,34 @@ body {
 }
 
 #camera-frame-container {
-  background-color: #0a1324;
-  border: 4px solid #102641;
-  border-radius: 8px;
-  padding: 8px;
   width: 100%;
-  max-width: 660px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  max-width: 960px;
+  /* ou 720px, 800px se quiser mais largo */
+  margin: 0 auto;
+  display: flex;
+  justify-content: justify;
 }
+
+
+#camera-frame-container video {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+  
+}
+
 
 .placa-box {
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
+  /* Ajusta ao tamanho da caixa */
   background-position: center;
-  width: 75%;
-  max-width: 800px;
-  height: 220px;
+  width: 100%;
+  max-width: 580px;
+  aspect-ratio: 3.6 / 1;
+  /* Mantém a proporção da placa */
   position: relative;
   margin: 0 auto;
   display: flex;
@@ -86,7 +98,7 @@ body {
 
 .placa-etiqueta-superior {
   position: absolute;
-  top: 40px;
+  top: 10px;
   width: 100%;
   text-align: center;
   font-size: 18px;
@@ -218,34 +230,44 @@ body {
   }
 }
 
-/* Estilo para semáforo */
 #semaforo-status {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   margin-top: 10px;
+  padding: 10px;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  width: fit-content;
 }
 
+/* Estado base (apagado/menos opaco) */
+/* Todas as luzes sempre visíveis, mas com menor destaque */
 .semaforo {
-  width: 18px;
-  height: 18px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
-  border: 1px solid white;
+  opacity: 0.3;
+  border: 2px solid #ccc;
+  transition: opacity 0.3s ease, box-shadow 0.3s ease;
 }
 
-.amarelo {
-  background-color: yellow;
+/* Luzes acesas */
+#sinal-verde {
+  background-color: #4dff4d;
 }
 
-.verde {
-  background-color: limegreen;
+#sinal-amarelo {
+  background-color: #ffd633;
 }
 
-.vermelho {
-  background-color: red;
+#sinal-vermelho {
+  background-color: #ff4d4d;
 }
 
-.d-none {
-  display: none !important;
+/* Quando ativa */
+.semaforo.ativo {
+  opacity: 1;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }

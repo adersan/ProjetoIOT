@@ -54,6 +54,39 @@ function exibirPlacaDetectadaNaTela(placaDetectada) {
   box.insertAdjacentHTML("afterbegin", `<div class="placa-etiqueta-superior">${etiquetaTexto}</div>`);
 }
 
+function exibirErroNaConsulta(placaDetectada = null) {
+  // Renderiza a imagem de placa com texto vermelho
+  const box = document.getElementById('placa-render');
+  const conteudo = box.querySelector('.placa-conteudo');
+  const etiqueta = box.querySelector('.placa-etiqueta-superior');
+  if (etiqueta) etiqueta.remove();
+
+  const tipo = /^[A-Z]{3}[0-9]{4}$/.test(placaDetectada) || /^[A-Z]{3}[0-9][A-Z][0-9]{2}$/.test(placaDetectada)
+    ? "mercosul" : "velha";
+  const imgPath = tipo === "mercosul" ? "img__mercosul.png" : "img__velha.png";
+  const etiquetaTexto = tipo === "mercosul" ? "BRASIL MODELO MERCOSUL" : "BRASIL MODELO ANTIGO";
+
+  box.style.backgroundImage = `url('/static/placas/imagens/${imgPath}')`;
+  conteudo.textContent = placaDetectada || "Não localizada";
+  conteudo.style.color = "red";
+  box.insertAdjacentHTML("afterbegin", `<div class="placa-etiqueta-superior">${etiquetaTexto}</div>`);
+
+  // Substitui campos da tabela por mensagem de erro
+  const campos = [
+    'placa', 'modelo', 'marca', 'cor', 'ano', 'municipio',
+    'situacao', 'versao', 'combustivel', 'potencia', 'chassi', 'restricao1'
+  ];
+
+  campos.forEach(id => {
+    const campo = document.getElementById(id);
+    if (campo) {
+      campo.innerHTML = `<span style="color: red; font-weight: bold;">Veículo não encontrado</span>`;
+    }
+  });
+}
+
+
+
 function atualizarDashboard() {
   fetch('/ultima-consulta-json')
     .then(res => res.json())
@@ -103,18 +136,21 @@ function atualizarDashboard() {
 }
 
 function atualizarSemaforo(cor) {
-  const verde = document.getElementById("sinal-verde");
-  const amarelo = document.getElementById("sinal-amarelo");
-  const vermelho = document.getElementById("sinal-vermelho");
+  const sinais = {
+    verde: document.getElementById("sinal-verde"),
+    amarelo: document.getElementById("sinal-amarelo"),
+    vermelho: document.getElementById("sinal-vermelho")
+  };
 
-  verde.classList.add("d-none");
-  amarelo.classList.add("d-none");
-  vermelho.classList.add("d-none");
+  // Remove classe 'ativo' de todos
+  Object.values(sinais).forEach(el => el.classList.remove("ativo"));
 
-  if (cor === "verde") verde.classList.remove("d-none");
-  else if (cor === "vermelho") vermelho.classList.remove("d-none");
-  else amarelo.classList.remove("d-none");  // padrão
+  // Adiciona classe 'ativo' ao sinal correspondente
+  if (sinais[cor]) {
+    sinais[cor].classList.add("ativo");
+  }
 }
+
 
 
 function sendImageToServer() {
@@ -147,10 +183,42 @@ function sendImageToServer() {
       atualizarDashboard();
     })
     .catch(err => {
-      console.error("Erro ao enviar imagem:", err);
+      console.warn("Erro ao consultar API externa:", err);
       atualizarSemaforo("vermelho");
+    
+      const box = document.getElementById('placa-render');
+      const conteudo = box.querySelector('.placa-conteudo');
+      const etiqueta = box.querySelector('.placa-etiqueta-superior');
+      if (etiqueta) etiqueta.remove();
+    
+      const tipo = /^[A-Z]{3}[0-9]{4}$/.test(placaDetectada) || /^[A-Z]{3}[0-9][A-Z][0-9]{2}$/.test(placaDetectada)
+        ? "mercosul" : "velha";
+      const imgPath = tipo === "mercosul" ? "img__mercosul.png" : "img__velha.png";
+      const etiquetaTexto = tipo === "mercosul" ? "BRASIL MODELO MERCOSUL" : "BRASIL MODELO ANTIGO";
+    
+      box.style.backgroundImage = `url('/static/placas/imagens/${imgPath}')`;
+      box.insertAdjacentHTML("afterbegin", `<div class="placa-etiqueta-superior">${etiquetaTexto}</div>`);
+    
+      conteudo.innerHTML = `
+        <div style="font-size: 90px; color: red; font-weight: bold;">${placaDetectada}</div>
+        <div style="font-size: 16px; color: red; text-align: center; margin-top: 5px;">
+          Placa não detectada no sistema,<br>procure o Detran
+        </div>
+      `;
+    
+      const campos = [
+        'placa', 'modelo', 'marca', 'cor', 'ano', 'municipio',
+        'situacao', 'versao', 'combustivel', 'potencia', 'chassi', 'restricao1'
+      ];
+      campos.forEach(id => {
+        const campo = document.getElementById(id);
+        if (campo) {
+          campo.innerHTML = `<span style="color: red; font-weight: bold;">Veículo não encontrado</span>`;
+        }
+      });
     });
-}
+    
+}    
 
 async function startVideo() {
   try {
