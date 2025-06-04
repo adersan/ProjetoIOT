@@ -124,6 +124,6 @@ Este é um projeto acadêmico de código aberto. Consulte o arquivo `LICENSE` pa
 
 Além deste resumo técnico, você pode acessar o documento completo com todos os detalhes do projeto, incluindo arquitetura, inteligência artificial, testes e anexos, no arquivo abaixo:
 
-📄 [Documentação Técnica Completa (PDF)](documentacao/Documento Sistema de Captura de Placas.pdf)
+📄 [Documentação Técnica Completa (PDF)](documentacao/Documento%20Sistema%20de%20Captura%20de%20Placas.pdf)
 
 
