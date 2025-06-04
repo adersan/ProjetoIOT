@@ -117,3 +117,8 @@ Este é um projeto acadêmico de código aberto. Consulte o arquivo `LICENSE` pa
 - **Anderson Teixeira Leal de Jesus** — Matrícula: `202303568312`  
 - **Everton Santana da Silva** — Matrícula: `202303052121`  
 - **Hugo Gabriel de Oliveira Marcelo** — Matrícula: `202308468103`
+
+## 👥 Documentação
+
+- 📄 [Documentação Técnica Completa](documentacao/Documentacao_Tecnica.pdf)
+
