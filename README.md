@@ -1,5 +1,5 @@
 
-# 🚗 Projeto IoT – Sistema de Detecção Automática de Placas Veiculares
+# 🚗 Sistema de Detecção Automática de Placas Veiculares
 
 Este projeto implementa uma solução baseada em visão computacional para **detecção e leitura de placas de veículos**, com integração à **API Brasil** para consulta de dados veiculares. O sistema utiliza **redes neurais treinadas com YOLO**, técnicas de OCR e backend web com Django para gerenciamento e visualização dos resultados.
 
