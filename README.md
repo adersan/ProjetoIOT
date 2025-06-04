@@ -120,5 +120,5 @@ Este é um projeto acadêmico de código aberto. Consulte o arquivo `LICENSE` pa
 
 ## 👥 Documentação
 
-- 📄 [Documentação Técnica Completa](documentacao/Documentacao_Tecnica.pdf)
+- 📄 [Documentação Técnica Completa](documentacao/Documento Sistema de Captura de Placas.pdf)
 
