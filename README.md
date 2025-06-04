@@ -112,11 +112,11 @@ Este é um projeto acadêmico de código aberto. Consulte o arquivo `LICENSE` pa
 
 ## 👥 Desenvolvedores
 
-- **Aderval Santiago Leite** — Matrícula: `201951145844`  
-- **Robert Santos Santana** — Matrícula: `202303696949`  
-- **Anderson Teixeira Leal de Jesus** — Matrícula: `202303568312`  
-- **Everton Santana da Silva** — Matrícula: `202303052121`  
-- **Hugo Gabriel de Oliveira Marcelo** — Matrícula: `202308468103`
+- **Aderval Santiago Leite**  
+- **Robert Santos Santana**   
+- **Anderson Teixeira Leal de Jesus**
+- **Everton Santana da Silva** 
+- **Hugo Gabriel de Oliveira Marcelo** 
 
 ---
 
