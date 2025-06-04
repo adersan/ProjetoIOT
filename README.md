@@ -118,7 +118,12 @@ Este é um projeto acadêmico de código aberto. Consulte o arquivo `LICENSE` pa
 - **Everton Santana da Silva** — Matrícula: `202303052121`  
 - **Hugo Gabriel de Oliveira Marcelo** — Matrícula: `202308468103`
 
-## 👥 Documentação
+---
 
-- 📄 [Documentação Técnica Completa](documentacao/Documento Sistema de Captura de Placas.pdf)
+## 📚 Documentação Complementar
+
+Além deste resumo técnico, você pode acessar o documento completo com todos os detalhes do projeto, incluindo arquitetura, inteligência artificial, testes e anexos, no arquivo abaixo:
+
+📄 [Documentação Técnica Completa (PDF)](documentacao/Documento Sistema de Captura de Placas.pdf)
+
 
