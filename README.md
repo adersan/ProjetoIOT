@@ -112,10 +112,10 @@ Este é um projeto acadêmico de código aberto. Consulte o arquivo `LICENSE` pa
 
 ## 👥 Desenvolvedores
 
-- **Aderval Santiago Leite**  
+- **Aderval Santiago Leite**
+- **Everton Santana da Silva** 
 - **Robert Santos Santana**   
 - **Anderson Teixeira Leal de Jesus**
-- **Everton Santana da Silva** 
 - **Hugo Gabriel de Oliveira Marcelo** 
 
 ---
